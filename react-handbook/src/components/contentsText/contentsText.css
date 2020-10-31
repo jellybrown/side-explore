@@ -1,0 +1,9 @@
+.ContentsTextBox {
+    display: flex;
+    margin: 10px auto;
+}
+
+.ContentsTextValue {
+    font-size: 20px;
+    line-height: 1.5em;
+}

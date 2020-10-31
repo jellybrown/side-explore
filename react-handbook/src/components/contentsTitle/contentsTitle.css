@@ -1,0 +1,10 @@
+.ContentsTitleBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto 100px;
+}
+
+.ContentsTitleText {
+    font-size: 40px;
+}
