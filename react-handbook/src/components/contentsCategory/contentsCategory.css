@@ -1,0 +1,20 @@
+.ContentsCategorySymbol {
+    color: rgba(127, 117, 28, 100);
+}
+
+.ContentsCategoryBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 300px;
+    height: 3em;
+    background: rgba(254, 234, 55, 100);
+    border-radius: 10px;
+}
+
+.ContentsCategoryText {
+    margin-left: 10px;
+    font-size: 26px;
+    color: rgba(127, 117, 28, 100);
+}
