@@ -1,22 +1,27 @@
+/* eslint react/prop-types: 0 */
 import React, { PureComponent } from 'react';
 import Category from './category';
-import categoryStyle from  './components/menu/';
+import './categoryStyle.css';
 
 class Categories extends PureComponent {
   render() {
+    const { categories } = this.props;
     return (
       <>
         <ul>
-          {this.props.categories.map((category) => (
+          {categories.map((category) => (
+
             <Category
               key={category.id}
               category={category}
             />
           ))}
+
         </ul>
       </>
     );
   }
 }
-
+// `${item.category_name}`
+// categories.map((item) => console.log(item))
 export default Categories;
