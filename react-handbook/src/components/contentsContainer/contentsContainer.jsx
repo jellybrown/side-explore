@@ -4,6 +4,7 @@ import ContentsCategory from 'components/contentsCategory/contentsCategory';
 import ContentsTitle from 'components/contentsTitle/contentsTitle';
 import ContentsDate from 'components/contentsDate/contentsDate';
 import ContentsText from 'components/contentsText/contentsText';
+import ContentsImage from '../contentsImage/contentsImage';
 
 const ContentsContainer = memo(() => {
   const text = 'JavaScript(JS)는 가벼운 인터프리터 또는 JIT 컴파일 프로그래밍 언어로, 일급 함수를 지원합니다.\n'
@@ -21,6 +22,7 @@ const ContentsContainer = memo(() => {
       <ContentsTitle text="Javascript Syntax" />
       <ContentsDate date="2020. 10. 31. (토)" />
       <ContentsText value={text} />
+      <ContentsImage imageSrc="javascript.jpg" />
     </div>
   );
 });
