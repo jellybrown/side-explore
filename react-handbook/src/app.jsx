@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import './app.css';
+import Tag from './components/tag';
 
 function App() {
   return (
     <div className="App">
-      Hello world
+      <Tag name="javascript" icon="js" />
     </div>
   );
 }
