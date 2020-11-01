@@ -10,6 +10,7 @@ const ContentsText = memo((props) => {
       <div className="ContentsTextBox">
         <span
           className="ContentsTextValue"
+          // eslint-disable-next-line
           dangerouslySetInnerHTML={{
             __html: value.replace(new RegExp('\n', 'g'), '<br/>'),
           }}

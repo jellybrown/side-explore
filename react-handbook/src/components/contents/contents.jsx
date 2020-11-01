@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import './contents.css';
 import ContentsCategory from 'components/contentsCategory/contentsCategory';
-import ContentsTitle from 'components/contentsTitle/contentsTitle';
-import ContentsDate from 'components/contentsDate/contentsDate';
-import ContentsText from 'components/contentsText/contentsText';
-import ContentsImage from '../contentsImage/contentsImage';
+import ContentsTitle from 'components/title/contentsTitle';
+import ContentsDate from 'components/date/date';
+import ContentsText from 'components/text/contentsText';
+import ContentsImage from 'components/image/image';
 
 const Contents = memo(() => {
   const text = 'JavaScript(JS)는 가벼운 인터프리터 또는 JIT 컴파일 프로그래밍 언어로, 일급 함수를 지원합니다.\n'

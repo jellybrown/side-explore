@@ -31,5 +31,4 @@ const GlobalStyles = createGlobalStyle`
     font-family:'Maven Pro', sans-serif;
   }
 `;
-
 export default GlobalStyles;
