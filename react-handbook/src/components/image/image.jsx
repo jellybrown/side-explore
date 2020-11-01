@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import './contentsImage.css';
+import './image.css';
 
 const Image = memo((props) => {
   const { imageSrc } = props;

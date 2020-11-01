@@ -1,4 +1,4 @@
-import ContentsContainer from 'components/contentsContainer/contentsContainer';
+import Contents from 'components/contents/contents';
 import Categories from 'components/menu/categories';
 import React, { Component } from 'react';
 import './app.css';
@@ -79,7 +79,7 @@ class App extends Component {
           categories={menu}
           onClick={this.onClickCategory}
         />
-        <ContentsContainer />
+        <Contents />
       </>
     );
   }

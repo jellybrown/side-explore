@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import './contentsDate.css';
+import './date.css';
 
 const Date = memo((props) => {
   const { date } = props;

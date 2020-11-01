@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import './contents.css';
 import ContentsCategory from 'components/contentsCategory/contentsCategory';
-import ContentsTitle from 'components/contentsTitle/contentsTitle';
-import ContentsDate from 'components/contentsDate/contentsDate';
-import ContentsText from 'components/contentsText/contentsText';
-import ContentsImage from 'components/contentsImage/contentsImage';
+import Title from 'components/title/contentsTitle';
+import Date from 'components/date/date';
+import Text from 'components/text/contentsText';
+import Image from 'components/image/image';
 import Toggle from './toggle';
 
 const Contents = memo(() => {
@@ -27,10 +27,10 @@ const Contents = memo(() => {
     <div className="ContentsContainer">
       <Toggle onClick={handleToggleClick} />
       <ContentsCategory name="javascript" icon="python" />
-      <ContentsTitle text="Javascript Syntax" />
-      <ContentsDate date="2020. 10. 31. (토)" />
-      <ContentsText value={text} />
-      <ContentsImage imageSrc="javascript.jpg" />
+      <Title text="Javascript Syntax" />
+      <Date date="2020. 10. 31. (토)" />
+      <Text value={text} />
+      <Image imageSrc="javascript.jpg" />
     </div>
   );
 });
