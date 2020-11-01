@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import './contentsDate.css';
 
-const ContentsDate = memo((props) => {
+const Date = memo((props) => {
   const { date } = props;
 
   return (
@@ -14,8 +14,8 @@ const ContentsDate = memo((props) => {
   );
 });
 
-ContentsDate.propTypes = {
+Date.propTypes = {
   date: PropTypes.string.isRequired,
 };
 
-export default ContentsDate;
+export default Date;
