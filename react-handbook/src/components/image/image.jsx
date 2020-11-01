@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import './contentsImage.css';
 
-const ContentsImage = memo((props) => {
+const Image = memo((props) => {
   const { imageSrc } = props;
 
   return (
@@ -13,8 +13,8 @@ const ContentsImage = memo((props) => {
   );
 });
 
-ContentsImage.propTypes = {
+Image.propTypes = {
   imageSrc: PropTypes.string.isRequired,
 };
 
-export default ContentsImage;
+export default Image;
