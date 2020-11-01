@@ -3,13 +3,18 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
+
     *{
         box-sizing:border-box;
+    }
+    #root {
+        display: flex;
     }
     body{
         font-size:14px;
         background-color:rgba(255,255,255,1);
-        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-family: 'Noto Sans KR';
+        letter-spacing: -0.2px;
     }
     a{
         text-decoration:none;
@@ -29,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
     }
     h1, h2, h3, h4, h5, h6 {
     font-family:'Maven Pro', sans-serif;
+
   }
 `;
 

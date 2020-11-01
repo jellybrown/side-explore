@@ -5,20 +5,25 @@ import './categoryStyle.css';
 
 class Categories extends PureComponent {
   render() {
-    const { categories } = this.props;
+    const { categories, onClick } = this.props;
+
     return (
       <>
-        <ul>
+        <ul
+          className="menu_list"
+        >
           {categories.map((category) => (
 
             <Category
               key={category.id}
               category={category}
+              onClick={onClick}
             />
           ))}
 
         </ul>
       </>
+
     );
   }
 }

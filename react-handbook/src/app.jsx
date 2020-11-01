@@ -1,5 +1,7 @@
+import ContentsContainer from 'components/contentsContainer/contentsContainer';
 import Categories from 'components/menu/categories';
 import React, { Component } from 'react';
+import './app.css';
 
 class App extends Component {
   constructor(props) {
@@ -55,11 +57,29 @@ class App extends Component {
     };
   }
 
+  onClickCategory = (e) => {
+    e.stopPropagation();
+
+    const clickThis = e.target;
+
+    const act = clickThis.className === 'category_title' ? 'category_title active' : 'category_title';
+    clickThis.setAttribute('class', act);
+    const index = clickThis.dataset.id;
+    const categoryInner = document.querySelectorAll('.category_list');
+    console.log(index);
+    const down = categoryInner[index].className === 'category_list' ? 'category_list active' : 'category_list';
+    categoryInner[index].setAttribute('class', down);
+  }
+
   render() {
     const { menu } = this.state;
     return (
       <>
-        <Categories categories={menu} />
+        <Categories
+          categories={menu}
+          onClick={this.onClickCategory}
+        />
+        <ContentsContainer />
       </>
     );
   }

@@ -5,6 +5,7 @@ import ContentsTitle from 'components/contentsTitle/contentsTitle';
 import ContentsDate from 'components/contentsDate/contentsDate';
 import ContentsText from 'components/contentsText/contentsText';
 import ContentsImage from '../contentsImage/contentsImage';
+import Toggle from './toggle';
 
 const ContentsContainer = memo(() => {
   const text = 'JavaScript(JS)는 가벼운 인터프리터 또는 JIT 컴파일 프로그래밍 언어로, 일급 함수를 지원합니다.\n'
@@ -16,9 +17,16 @@ const ContentsContainer = memo(() => {
     + '\n'
     + '자세한 내용은 JavaScript에 대하여를 참고하세요.';
 
+  const handleToggleClick = () => {
+    const toggleBtn = document.querySelector('.toggleBtn');
+    toggleBtn.classList.toggle('active');
+    console.log('hello');
+  };
+
   return (
     <div className="ContentsContainer">
-      <ContentsCategory name="javascript" icon="js" />
+      <Toggle onClick={handleToggleClick} />
+      <ContentsCategory name="javascript" icon="python" />
       <ContentsTitle text="Javascript Syntax" />
       <ContentsDate date="2020. 10. 31. (토)" />
       <ContentsText value={text} />

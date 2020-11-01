@@ -1,7 +1,7 @@
 .ContentsDateBox {
-
+  margin: 10px auto;
 }
 
 .ContentsDateText {
-    color: rgba(71, 71, 71, 100);
+  color: rgba(71, 71, 71, 100);
 }

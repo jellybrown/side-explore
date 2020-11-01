@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import './contentsImage.css';
 
 const ContentsImage = memo((props) => {
   const { imageSrc } = props;
@@ -7,8 +8,7 @@ const ContentsImage = memo((props) => {
   return (
     <>
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <img src={imageSrc} />
-      {imageSrc}
+      <img className="ContentsImage" src={imageSrc} />
     </>
   );
 });
