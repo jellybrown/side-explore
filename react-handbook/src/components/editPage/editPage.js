@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { createRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from '@toast-ui/react-editor';
 import 'codemirror/lib/codemirror.css';
@@ -13,10 +13,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 const style = () => ({
   root: {
+    width: '100%',
+    height: '100vh',
     '& label.Mui-focused': {
       color: 'black',
     },
-    height: '100vh',
   },
   editPageTitle: {
     display: 'flex',
@@ -83,70 +84,61 @@ const style = () => ({
   },
 });
 
-class EditPage extends Component {
-  constructor() {
-    super();
-    this.topContainerRef = React.createRef();
-    this.editorRef = React.createRef();
-    this.state = {
-    };
-  }
+const EditPage = ({ classes }) => {
+  const topContainerRef = createRef();
+  const editorRef = createRef();
 
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  handleClick = () => {
+  const handleClick = () => {
     // eslint-disable-next-line
-    console.log(this.editorRef.current.getInstance().getHtml());
-  }
+    console.log(editorRef.current.getInstance().getHtml());
+  };
 
-  handleResize = () => {
-    const topContainer = document.querySelector(`.${this.topContainerRef.current.className}`);
-    const editorObj = document.querySelector('.tui-editor-defaultUI');
-    editorObj.style.height = `${window.innerHeight - topContainer.clientHeight}px`;
-  }
+  useEffect(() => {
+    const handleResize = () => {
+      const topContainer = document.querySelector(`.${topContainerRef.current.className}`);
+      const editorObj = document.querySelector('.tui-editor-defaultUI');
+      editorObj.style.height = `${window.innerHeight - topContainer.clientHeight}px`;
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  }, [topContainerRef]);
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <div className={classes.topContainer} ref={this.topContainerRef}>
-          <span className={classes.editPageTitle}>공들여 쓰자</span>
-          <div className={classes.titleContainer}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="name-input" className={classes.Mui}>분류</InputLabel>
-              <Input id="category-input" className={classes.MuiInput} />
-              <FormHelperText>분류를 정해주세요.</FormHelperText>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="name-input">글 제목</InputLabel>
-              <Input id="title-input" className={classes.MuiInput} />
-              <FormHelperText>글 제목을 정해주세요.</FormHelperText>
-            </FormControl>
-          </div>
-          {/* eslint-disable-next-line react/button-has-type */}
-          <Button
-            className={classes.button}
-            variant="contained"
-            size="small"
-            onClick={this.handleClick}
-          >
-            저장
-          </Button>
+  return (
+    <div className={classes.root}>
+      <div className={classes.topContainer} ref={topContainerRef}>
+        <span className={classes.editPageTitle}>공들여 쓰자</span>
+        <div className={classes.titleContainer}>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="name-input" className={classes.Mui}>분류</InputLabel>
+            <Input id="category-input" className={classes.MuiInput} />
+            <FormHelperText>분류를 정해주세요.</FormHelperText>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="name-input">글 제목</InputLabel>
+            <Input id="title-input" className={classes.MuiInput} />
+            <FormHelperText>글 제목을 정해주세요.</FormHelperText>
+          </FormControl>
         </div>
-        <Editor
-          previewStyle="vertical"
-          height="50%"
-          initialEditType="markdown"
-          initialValue="# 안녕하세요."
-          ref={this.editorRef}
-        />
+        {/* eslint-disable-next-line react/button-has-type */}
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="small"
+          onClick={handleClick}
+        >
+          저장
+        </Button>
       </div>
-    );
-  }
-}
+      <Editor
+        previewStyle="vertical"
+        height="50%"
+        initialEditType="markdown"
+        initialValue="# 안녕하세요."
+        ref={editorRef}
+      />
+    </div>
+  );
+};
 
 EditPage.propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
