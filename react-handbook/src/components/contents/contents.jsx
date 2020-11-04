@@ -20,7 +20,6 @@ const Contents = memo(() => {
   const handleToggleClick = () => {
     const toggleBtn = document.querySelector('.toggleBtn');
     toggleBtn.classList.toggle('active');
-    console.log('hello');
   };
 
   return (

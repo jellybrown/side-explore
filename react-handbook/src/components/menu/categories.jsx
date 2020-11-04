@@ -9,9 +9,7 @@ class Categories extends PureComponent {
 
     return (
       <>
-        <ul
-          className="menu_list"
-        >
+        <ul className="menu_list">
           {categories.map((category) => (
 
             <Category
@@ -20,7 +18,6 @@ class Categories extends PureComponent {
               onClick={onClick}
             />
           ))}
-
         </ul>
       </>
 
