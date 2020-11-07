@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Handbook = require('../models').Handbook;
-const sequelize = require('../models').sequelize;
+const Handbook = require('../models/mariadb').Handbook;
+const sequelize = require('../models/mariadb').sequelize;
 
 router.get('/', function(req, res, next) {
   Handbook.findAll()
