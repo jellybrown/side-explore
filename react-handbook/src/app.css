@@ -1,6 +1,7 @@
-.App {
+.root_body {
+  width: 100%;
+  display: flex;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,16 +36,11 @@
     transform: rotate(360deg);
   }
 }
-body {
-  margin-left: -300px;
-}
-body.active {
-  margin-left: 0px;
-}
+
 .menu_list {
   background: rgba(0, 0, 0, 0.05);
   width: 300px;
-  min-width: 200px;
+  box-sizing: border-box;
 }
 
 .menu_list > li {

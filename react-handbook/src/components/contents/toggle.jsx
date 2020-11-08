@@ -15,7 +15,7 @@ class Toggle extends PureComponent {
           onClick={onClick}
           onKeyDown={onClick}
         >
-          <i className="fas fa-hamburger" />
+          <i className="fas fa-bars" />
         </span>
       </>
     );

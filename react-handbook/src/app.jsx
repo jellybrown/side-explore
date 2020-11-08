@@ -9,7 +9,18 @@ class App extends Component {
     super(props);
     this.state = {
       menu: menuData,
+      toggleState: 0,
     };
+  }
+
+  componentDidUpdate() {
+    const { toggleState } = this.state;
+    const contentsBody = document.querySelector('.root_body');
+    console.log('contentsBody offectWidth : ', contentsBody.offsetWidth);
+    console.log('toggleState : ', toggleState);
+    contentsBody.style.transition = '0.2s';
+    contentsBody.style.marginLeft = `-${toggleState}px`;
+    contentsBody.style.width = `calc(100% + ${toggleState}px)`;
   }
 
   onClickCategory = (e) => {
@@ -26,16 +37,36 @@ class App extends Component {
     categoryInner[index].setAttribute('class', down);
   };
 
+  onClickToggle = (e) => {
+    e.stopPropagation();
+    const menu = document.querySelector('.menu_list');
+    console.log(menu);
+    const menuWidth = menu.offsetWidth;
+    const { toggleState } = this.state;
+    if (toggleState === 0) {
+      this.setState({
+        toggleState: menuWidth,
+      });
+    } else {
+      this.setState({
+        toggleState: 0,
+      });
+    }
+  }
+
   render() {
     const { menu } = this.state;
     return (
-      <>
+      <div className="root_body">
         <Categories
           categories={menu}
           onClick={this.onClickCategory}
+
         />
-        <Contents />
-      </>
+        <Contents
+          onToggle={this.onClickToggle}
+        />
+      </div>
     );
   }
 }
