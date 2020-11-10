@@ -4,14 +4,17 @@ import './header.css';
 
 const Header = (props) => {
     return (
-       <header>
-        <ul className="menu_list">
-            <li><Link to ="/login">home</Link></li>
-            <li><Link to ="/login">login</Link></li>
+      <header>
+        <img class="logo" src="project-logo1.png" alt="logo" />
+        <nav>
+          <ul className="menu_list">
+            <li><Link to ="/">home</Link></li>
+            <li><Link to ="/login">test</Link></li>
             <li><Link to ="/join">join</Link></li>
-            <li><Link to ="/login">dsffsdf</Link></li>
-        </ul>
-        </header>
+            <li><Link to ="/login"><button>login</button></Link></li>
+          </ul>
+        </nav>
+      </header>
     )
 };
 

@@ -5,6 +5,7 @@ import Header from './container/Header/header';
 import JoinContainer from './container/JoinContainer/joinContainer';
 import LoginContainer from './container/LoginContainer/loginContainer';
 import '@fortawesome/fontawesome-free/js/all';
+import HomeContainer from "./container/HomeContainer/homeContainer";
 
 function App() {
   return (
@@ -12,13 +13,15 @@ function App() {
     <BrowserRouter>
     <Header />
     <Switch>
-      <Route exact path={["/", "/login"]}>
-      <LoginContainer />
+      <Route exact path="/">
+        <HomeContainer />
+      </Route>
+      <Route path="/login">
+        <LoginContainer />
       </Route>
       <Route path="/join">
-        <JoinContainer/>
+        <JoinContainer />
       </Route>
-
     </Switch>
     </BrowserRouter>
     </>
