@@ -66,9 +66,9 @@ class ArticleList extends Component {
       <div>
         {this.state.articles ? (
           <div>
-            <Grid container style={{padding: 40}}>
+            <Grid container style={{padding: '5% 20%'}}>
               { this.state.articles.map(currentArticle => (
-                <Grid item key={currentArticle.key} style={{padding: 20}} xs={12} sm={12} lg={6} xl={6}>
+                <Grid item key={currentArticle.key} style={{padding: 20}} xs={12} sm={12} lg={6} xl={4}>
                   <Article article={currentArticle} />
                 </Grid>
               ))}
