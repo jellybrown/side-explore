@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './container/Header/header';
-import JoinContainer from './container/JoinContainer/joinContainer';
-import LoginContainer from './container/LoginContainer/loginContainer';
+import Header from './containers/Header/header';
+import JoinContainer from './containers/JoinContainer/joinContainer';
+import LoginContainer from './containers/LoginContainer/loginContainer';
 import '@fortawesome/fontawesome-free/js/all';
-import HomeContainer from "./container/HomeContainer/homeContainer";
+import HomeContainer from "./containers/HomeContainer/homeContainer";
 
 function App() {
   return (

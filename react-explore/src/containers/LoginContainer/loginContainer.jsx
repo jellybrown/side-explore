@@ -8,12 +8,12 @@ const LoginContainer = (props) => {
         <section className="login_page">
         <form>
             <div className="input_group">
-                <span className="icon"><i class="fas fa-user"></i></span>
+                <span className="icon"><i className="fas fa-user"></i></span>
                 <input type="email" placeholder="Email" id="email_input"/>
                 <label htmlFor="email_input"></label>
             </div>
             <div className="input_group">
-            <span className="icon"><i class="fas fa-lock"></i></span>
+            <span className="icon"><i className="fas fa-lock"></i></span>
                 <input type="password" placeholder="Password" id="pw_input"/>
                 <label htmlFor="pw_input"></label>
             </div>
