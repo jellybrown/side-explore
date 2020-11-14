@@ -10,7 +10,7 @@ const Header = (props) => {
           <ul className="menu_list">
             <li><Link to ="/">home</Link></li>
             <li><Link to ="/login">test</Link></li>
-            <li><Link to ="/join">join</Link></li>
+            <li><Link to ="/signup">sign up</Link></li>
             <li><Link to ="/login"><button>login</button></Link></li>
           </ul>
         </nav>

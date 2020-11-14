@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #7f35ae, #4507a9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: stretch;
+  flex-grow: 1;
+}
+.tit {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+.form {
+  width: 50%;
+  max-width: 400px;
+}
+
+.email,
+.pw,
+.pw2,
+.name {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1.5em 0.7em;
+  border: outer 2px solid #ddd;
+  border-radius: 10px;
+  margin: 0;
+  font-size: 1em;
+  opacity: 0.8;
+}
+
+.email {
+  margin-bottom: 0.5em;
+}
+.pw {
+  border-radius: 10px 10px 0 0;
+  margin-top: 1.4em;
+}
+.pw2 {
+  border-radius: 0 0 10px 10px;
+}
+.name {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.btns {
+  display: flex;
+  opacity: 0.8;
+}
+button {
+  border: inherit !important;
+}
+.male {
+  flex-basis: 50%;
+  border-radius: 10px 0 0 10px;
+  border: outer 2px solid #000 !important;
+}
+.female {
+  flex-basis: 50%;
+  border-radius: 0 10px 10px 0;
+  border: outer 2px solid #ddd;
+}
+
+.vertify {
+  background: #bbb;
+  color: #fff;
+
+  border-radius: 10px;
+  width: 55%;
+  padding: 1em 0;
+  font-size: 1rem;
+  margin: 4em auto 0;
+  transition: 1s;
+}
+.vertify:hover {
+  background: #bbb;
+  transform: scale(1.1);
+}
+
+.emailTxt {
+  display: inline-block;
+  margin: 0;
+  opacity: 0.5;
+  font-size: 0.8em;
+  padding-left: 1.5em;
+}
