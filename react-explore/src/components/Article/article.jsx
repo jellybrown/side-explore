@@ -10,14 +10,14 @@ const Article = (props) => {
   return(
     <div>
       { props.article ? (
-        <Link to={"login"}>
+        <Link to={"article" + "/" + props.article.fields.title}>
           <Card style={{border: "none", boxShadow: "none", borderRadius: 0}}>
             <CardMedia style={{height: 0, paddingTop: '60%'}}
                        image={props.article.fields.articleImage.fields.file.url}
                        title={props.article.fields.title}
             />
             <CardContent>
-              <Typography gutterBottom component="h2" style={{fontSize: '1.2rem', fontWeight: 'bold'}}>
+              <Typography gutterBottom style={{fontSize: '1.2rem'}}>
                 {props.article.fields.title}
               </Typography>
               <Typography component="p">
