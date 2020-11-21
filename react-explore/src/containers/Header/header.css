@@ -6,12 +6,17 @@ header {
   padding: 0px 10%;
   background: #7d34ae;
 }
+.nav {
+  position: relative;
+  z-index: 5;
+}
 header .logo {
   width: 240px;
   cursor: pointer;
 }
 .menu_list {
   list-style: none;
+  overflow: hidden;
 }
 .menu_list li {
   display: inline-block;
@@ -20,6 +25,11 @@ header .logo {
 .menu_list li a {
   color: #fff;
   transition: all 0.3s ease 0s;
+}
+.menu_list li a span.active {
+  /*background: #fff;*/
+  transition: all 0.3s ease 0s;
+  transition-delay: 0.2s;
 }
 
 button {
@@ -34,4 +44,14 @@ button {
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.menu_rectangle {
+  position: absolute;
+  z-index: 3;
+  width: 70px;
+  height: 30px;
+  border-radius: 45px;
+  background-color: white;
+  transition: all 0.3s ease 0s;
 }
