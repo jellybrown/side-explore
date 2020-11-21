@@ -75,7 +75,8 @@ const Header = (props) => {
     return () => {
       if (eventMenuId != '') {
         let eventElement = document.getElementById(eventMenuId);
-        eventElement.style.color = 'white';
+        if (eventElement != null)
+          eventElement.style.color = 'white';
       }
     }
   }, [eventMenuId]);
