@@ -1,35 +1,39 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Link, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.css';
+import _ from 'lodash';
 
-const Header = (props) => {
+const Header = () => {
   const menuRectRef = useRef();
   const [eventMenuId, setEventMenuId] = useState('home');
   const [menuRectInfo, setMenuRectInfo] = useState({
     left: 0,
     width: 0
   });
-  const [menuSelectToggle, setMenuSelectToggle] = useState(false);
   const [items, setItems] = useState([
     {
+      id: 1,
       domId: 'home',
       text: 'home',
       link: '/',
       active: true
     },
     {
+      id: 2,
       domId: 'test',
       text: 'test',
       link: '/test',
       active: false
     },
     {
+      id: 3,
       domId: 'signup',
       text: 'signup',
       link: '/signup',
       active: false
     },
     {
+      id: 4,
       domId: 'login',
       text: 'login',
       link: '/login',
@@ -38,44 +42,36 @@ const Header = (props) => {
   ]);
 
   useEffect(() => {
-    console.log('items 값이 변경됨.');
-    items.map(
-      item => item.active == true
-        && console.log('변경 후', item)
-    );
+    const resizeListener = () => {
+      setEventMenuId('home');
+    };
+    window.addEventListener('resize', resizeListener);
 
     return () => {
-      console.log('items 값이 변경되기 전.');
-      items.map(
-        item => item.active == true
-          && console.log('변경 전', item)
-      );
-    };
-  }, [items]);
+      window.removeEventListener('resize', resizeListener);
+    }
+  }, []);
 
+  /* eventMenuId useEffect : 메뉴 이벤트 트리거 */
   useEffect(() => {
-    console.log('useEffect-eventMenuId');
-    if (eventMenuId != '') {
+    if (eventMenuId !== '') {
       let eventElement = document.getElementById(eventMenuId);
       let eventRect = eventElement.getBoundingClientRect();
-      console.log(eventRect.width);
-      console.log(eventRect.x);
       setMenuRectInfo({
         left: eventRect.x - 15,
         width: eventRect.width + 30
       });
-      setMenuSelectToggle(!menuSelectToggle);
       setItems(
         items.map(
-          item => item.domId == eventMenuId
+          item => item.domId === eventMenuId
             ? {...item, active: true}
             : {...item, active: false}));
       eventElement.style.color = 'black';
     }
     return () => {
-      if (eventMenuId != '') {
+      if (eventMenuId !== '') {
         let eventElement = document.getElementById(eventMenuId);
-        if (eventElement != null)
+        if (eventElement !== null)
           eventElement.style.color = 'white';
       }
     }
@@ -92,14 +88,14 @@ const Header = (props) => {
         ref={menuRectRef}
         style={{left: menuRectInfo.left, width: menuRectInfo.width}}>
       </div>
-      <img className="logo" src="project-logo1.png" alt="logo" />
+      <img className="logo" src="logo-white.png" alt="logo_photo" />
       <nav className="nav">
         <ul className="menu_list">
           {
             items.map(item => (
-              <li>
+              <li key={item.domId}>
                 <Link to={item.link} onClick={onClickHeader}>
-                  <span id={item.domId} className={item.active && 'active'}>{item.text}</span>
+                  <span id={item.domId} className={item.active ? 'active' : null}>{item.text}</span>
                 </Link>
               </li>
             ))

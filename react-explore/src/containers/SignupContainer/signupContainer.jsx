@@ -21,7 +21,7 @@ const SignupContainer = ({setHeaderVisible}) => {
     const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     const pwExp =  /^[a-z0-9_]{4,20}$/;
     const onChange = (e) => {
-        
+
         const name = e.target.name;
         const value = e.target.value;
        setText({
@@ -34,11 +34,11 @@ const SignupContainer = ({setHeaderVisible}) => {
     }
     if( name === 'password') {
         checkValue(value, pwExp, pwRef, pRef);
-        
+
     }
     if( name === 'password2') {
         checkValue(value, pwExp, pwRef, pRef2);
-        
+
     }
 
 }
@@ -51,30 +51,30 @@ const SignupContainer = ({setHeaderVisible}) => {
 
     const good = 'OK. Please write next information.';
     const bad = 'Please check your information.';
-    
+
     const checkValue = (value, exp, currRef, styleRef) => {
         const check = value && (exp.test(value))? good : bad;
         check === bad ? setRedLine(true) : setRedLine(false);
         currRef.current.innerText = check;
         if(redLine === true) {
             styleRef.current.style.border = ` 1px solid red`;
-            
-           
+
+
         } else {
             styleRef.current.style.border = ` 1px solid #ddd`;
             console.log(styleRef);
             if(styleRef.current.name === 'password' || styleRef.current.name === 'password2') {
-                
+
                 const text = pRef.current.value ===  pRef2.current.value ?  `same password` :  `different password`;
                 pwRef.current.innerText = text;
-                
-                
+
+
             }
-            
+
         }
     }
 
-    
+
 
     return (
         <section className={styles.signup}>
@@ -96,7 +96,7 @@ const SignupContainer = ({setHeaderVisible}) => {
                     <span ref={pwRef} className={styles.guideTxt}></span>
                     <input name="name" value={name} placeholder="your name" onChange={onChange} className={styles.name}/>
                     <div className={styles.radioBtns}>
-                    <input name="radio" type="radio" id="male" checked="checked" />
+                    <input name="radio" type="radio" id="male" checked="checked" onChange={() => {}} />
                     <label htmlFor="male" className={styles.male}>male</label>
                     <input name="radio" type="radio" id="female"/>
                     <label htmlFor="female" className={styles.female}>female</label>

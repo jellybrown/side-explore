@@ -1,12 +1,8 @@
 import React from 'react'
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Card from '@material-ui/core/Card'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles } from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
-import {CardMedia} from "@material-ui/core";
-import transitions from "@material-ui/core/styles/transitions";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     position: 'relative',
     width: '100%',
@@ -56,16 +52,16 @@ const useStyles = makeStyles((theme) => ({
 
 const BigArticle = (props) => {
   const classes = useStyles();
-  const theme = useTheme();
 
   return(
     <div className={classes.root}>
       { props.article ? (
-        <Link to={"article" + "/" + props.article.fields.title}>
+        <Link to={"article/" + props.article.fields.title}>
           <div className={classes.parent}>
             <img
               className={classes.image}
               src={props.article.fields.articleImage.fields.file.url}
+              alt="article_photo"
             />
             <div className={classes.overlay}>
               <div className={classes.text}>

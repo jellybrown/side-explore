@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Divider } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Article from '../Article/article'
 import BigArticle from '../Article/bigArticle'
 import articleDummy from '../../dummy/articles';
@@ -24,13 +24,14 @@ class ArticleList extends Component {
           <div>
             <Grid container style={{padding: '5% 10%'}}>
               {
-                this.state.articles.map((currentArticle, index) => (
-                  index == 0 ?
-                    <div style={{width: '100%'}}>
+                this.state.articles.map((currentArticle) => (
+
+                  currentArticle.key === 0 ?
+                    <li key={currentArticle.key} style={{width: '100%'}}>
                       <Grid item key={currentArticle.key} style={{padding: 30}} xs={12}>
                         <BigArticle article={currentArticle} />
                       </Grid>
-                    </div>
+                    </li>
                     :
                     <Grid item key={currentArticle.key} style={{padding: 35}} xs={12} sm={6} lg={6} xl={6}>
                       <Article article={currentArticle} />

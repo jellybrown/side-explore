@@ -10,7 +10,7 @@ const Article = (props) => {
   return(
     <div>
       { props.article ? (
-        <Link to={"article" + "/" + props.article.fields.title}>
+        <Link to={"article/" + props.article.fields.title}>
           <Card style={{border: "none", boxShadow: "none", borderRadius: 0}}>
             <CardMedia style={{height: 0, paddingTop: '60%'}}
                        image={props.article.fields.articleImage.fields.file.url}
