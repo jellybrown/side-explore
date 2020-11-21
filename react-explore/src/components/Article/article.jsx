@@ -4,6 +4,16 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import {Link} from "react-router-dom";
+import './article.css'
+
+const styles = {
+  card: {
+    background: "#f1f1f1",
+    '&:hover': {
+      background: "#f00",
+    }
+  }
+};
 
 const Article = (props) => {
 
@@ -11,7 +21,13 @@ const Article = (props) => {
     <div>
       { props.article ? (
         <Link to={"article/" + props.article.fields.title}>
-          <Card style={{border: "none", boxShadow: "none", borderRadius: 0}}>
+          <Card style={{
+            border: "none",
+            borderRadius: '10px',
+            boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
+            padding: '1.5em',
+            transition: '0.7s'
+          }} className="card">
             <CardMedia style={{height: 0, paddingTop: '60%'}}
                        image={props.article.fields.articleImage.fields.file.url}
                        title={props.article.fields.title}

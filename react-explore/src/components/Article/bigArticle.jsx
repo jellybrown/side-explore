@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
     display: 'block',
     width: '100%',
     height: '100%',
-    transition: '1s',
+    transition: '1s'
   },
   overlay: {
     position: 'absolute',

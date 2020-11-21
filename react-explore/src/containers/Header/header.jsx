@@ -6,10 +6,6 @@ import _ from 'lodash';
 const Header = () => {
   const menuRectRef = useRef();
   const [eventMenuId, setEventMenuId] = useState('home');
-  const [menuRectInfo, setMenuRectInfo] = useState({
-    left: 0,
-    width: 0
-  });
   const [items, setItems] = useState([
     {
       id: 1,
@@ -40,10 +36,14 @@ const Header = () => {
       active: false
     }
   ]);
-
+  const [menuRectInfo, setMenuRectInfo] = useState({
+    left: 0,
+    width: 0
+  });
   useEffect(() => {
     const resizeListener = () => {
-      setEventMenuId('home');
+      // setEventMenuId('home');
+      console.log('resize');
     };
     window.addEventListener('resize', resizeListener);
 
@@ -54,12 +54,14 @@ const Header = () => {
 
   /* eventMenuId useEffect : 메뉴 이벤트 트리거 */
   useEffect(() => {
-    if (eventMenuId !== '') {
+    if (eventMenuId) {
       let eventElement = document.getElementById(eventMenuId);
       let eventRect = eventElement.getBoundingClientRect();
+      console.log(eventElement.getClientRects());
+      let eventElementRect = eventElement.getBoundingClientRect();
       setMenuRectInfo({
-        left: eventRect.x - 15,
-        width: eventRect.width + 30
+        left: eventRect.x - eventElementRect.width / 2,
+        width: eventRect.width + eventElementRect.width
       });
       setItems(
         items.map(

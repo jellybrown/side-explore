@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid } from '@material-ui/core'
+import {Divider, Grid} from '@material-ui/core'
 import Article from '../Article/article'
 import BigArticle from '../Article/bigArticle'
 import articleDummy from '../../dummy/articles';
@@ -22,7 +22,7 @@ class ArticleList extends Component {
       <div>
         {this.state.articles ? (
           <div>
-            <Grid container style={{padding: '5% 10%'}}>
+            <Grid container style={{padding: '2% 10%'}}>
               {
                 this.state.articles.map((currentArticle) => (
 
