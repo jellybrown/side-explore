@@ -4,12 +4,23 @@
 
 .signupHeader {
   position: absolute;
+  right: 0;
+  top: 0;
 }
 .header {
   display: flex;
+  margin-right: 1em;
 }
 .menu {
-  margin: 0 1em;
+  margin: 1em;
+}
+.menu a {
+  color: #fff;
+  opacity: 0.4;
+  transition: 0.5s;
+}
+.menu a:hover {
+  opacity: 1;
 }
 
 .container {
@@ -123,8 +134,8 @@ input[type="radio"] {
     #64958f
   );
   opacity: 0;
-  transition: 0.5s;
-  animation: animate 1s infinite;
+  transition: 3s;
+  animation: animate 3s infinite;
 }
 
 .vertify:hover:before {

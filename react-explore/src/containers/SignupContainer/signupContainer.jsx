@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './signupContainer.module.css';
 
 
@@ -76,32 +77,34 @@ const SignupContainer = ({setHeaderVisible}) => {
     
 
     return (
-        <>
-        <section className={styles.signupHeader}>
-            <ul className={styles.header}>
-                <li className={styles.menu}>home</li>
-                <li className={styles.menu}>login</li>
-            </ul>
+        <section className={styles.signup}>
+            <section className={styles.signupHeader}>
+                <ul className={styles.header}>
+                    <li className={styles.menu}>
+                        <Link to="/">home</Link></li>
+                    <li className={styles.menu}>
+                    <Link to="login">login</Link></li>
+                </ul>
+            </section>
+            <section className={styles.container}>
+                <h1 className={styles.tit}>Sign up</h1>
+                <form className={styles.form}>
+                    <input ref={eRef} name="email" value={email} placeholder="blog@email.com" onChange={(e) => onChange(e)} className={styles.email}/>
+                    <span ref={emailRef} className={styles.guideTxt}>Please check your email.</span>
+                    <input ref={pRef} name="password" value={password} placeholder="password" onChange={onChange} className={styles.pw}/>
+                    <input ref={pRef2} name="password2" value={password2} placeholder="check your password." onChange={onChange} className={styles.pw2}/>
+                    <span ref={pwRef} className={styles.guideTxt}></span>
+                    <input name="name" value={name} placeholder="your name" onChange={onChange} className={styles.name}/>
+                    <div className={styles.radioBtns}>
+                    <input name="radio" type="radio" id="male" checked="checked" />
+                    <label htmlFor="male" className={styles.male}>male</label>
+                    <input name="radio" type="radio" id="female"/>
+                    <label htmlFor="female" className={styles.female}>female</label>
+                    </div>
+                    <button className={styles.vertify}>Vertify email address</button>
+                </form>
+            </section>
         </section>
-        <section className={styles.container}>
-            <h1 className={styles.tit}>Sign up</h1>
-            <form className={styles.form}>
-                <input ref={eRef} name="email" value={email} placeholder="blog@email.com" onChange={(e) => onChange(e)} className={styles.email}/>
-                <span ref={emailRef} className={styles.guideTxt}>Please check your email.</span>
-                <input ref={pRef} name="password" value={password} placeholder="password" onChange={onChange} className={styles.pw}/>
-                <input ref={pRef2} name="password2" value={password2} placeholder="check your password." onChange={onChange} className={styles.pw2}/>
-                <span ref={pwRef} className={styles.guideTxt}></span>
-                <input name="name" value={name} placeholder="your name" onChange={onChange} className={styles.name}/>
-                <div className={styles.radioBtns}>
-                 <input name="radio" type="radio" id="male" checked="checked" />
-                 <label htmlFor="male" className={styles.male}>male</label>
-                 <input name="radio" type="radio" id="female"/>
-                 <label htmlFor="female" className={styles.female}>female</label>
-                </div>
-                <button className={styles.vertify}>Vertify email address</button>
-            </form>
-        </section>
-        </>
     )
 };
 
