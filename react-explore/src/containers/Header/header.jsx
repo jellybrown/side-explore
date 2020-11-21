@@ -73,13 +73,12 @@ const Header = (props) => {
       eventElement.style.color = 'black';
     }
     return () => {
-      if (eventMenuId != '') {
+      if (!eventMenuId) {
         let eventElement = document.getElementById(eventMenuId);
-        if (eventElement != null)
-          eventElement.style.color = 'white';
+        eventElement.style.color = 'white';
       }
     }
-  }, [eventMenuId]);
+  }, [eventMenuId, items, menuSelectToggle]);
 
   const onClickHeader = (e) => {
     setEventMenuId(e.target.id);

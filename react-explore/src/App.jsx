@@ -24,7 +24,7 @@ function App() {
             <LoginContainer setHeaderVisible={setHeaderVisible}/>
           </Route>
           <Route path="/signup">
-            <SignupContainer setHeaderVisible={setHeaderVisible} />
+            <SignupContainer />
           </Route>
         </Switch>
       </BrowserRouter>

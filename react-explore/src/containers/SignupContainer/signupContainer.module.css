@@ -26,7 +26,7 @@
 .container {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #7f35ae, #4507a9);
+  background: #ffa5a5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +55,7 @@
   border-radius: 10px;
   margin: 0;
   font-size: 1em;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .email {
@@ -77,7 +77,6 @@
   border-radius: 10px;
   overflow: hidden;
   opacity: 0.8;
-  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .male,
 .female {
@@ -91,7 +90,7 @@
 input[type="radio"] + label {
 }
 input[type="radio"]:checked + label {
-  background: #ddd;
+  background: #fcb5b5;
   color: #000;
 }
 
@@ -101,7 +100,8 @@ input[type="radio"] {
 }
 
 .vertify {
-  background: linear-gradient(to right, #5c6e91, #839b97);
+  background: #fcb5b5;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
   color: #fff;
   display: block;
   border-radius: 10px;
@@ -114,6 +114,10 @@ input[type="radio"] {
   overflow: hidden;
   z-index: 3;
 }
+.vertify:hover {
+  background: #fcb5b5;
+  transform: scale(1.1);
+}
 
 .vertify:before {
   z-index: -1;
@@ -123,24 +127,14 @@ input[type="radio"] {
   left: -40%;
   top: -20%;
   transform: translateY(-50%);
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    #d789d7,
-    #9d65c9,
-    #ffc93c,
-    #5d54a4,
-    #64958f
-  );
+  width: 180%;
+  height: 180%;
+  background: linear-gradient(to right, #d789d7, #fcb5b5);
   opacity: 0;
   transition: 3s;
   animation: animate 3s infinite;
 }
 
-.vertify:hover:before {
-  opacity: 1;
-}
 @keyframes animate {
   0% {
     transform: translateX(0);

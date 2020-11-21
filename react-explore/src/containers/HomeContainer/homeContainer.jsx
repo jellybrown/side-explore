@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import ArticleList from "../../components/ArticleList/articleList";
 import SubHeader from "../../components/SubHeader/subHeader";
+import styles from './homeContainer.module.css';
 
 const HomeContainer = ({setHeaderVisible}) => {
   useEffect(() => {
@@ -10,7 +11,9 @@ const HomeContainer = ({setHeaderVisible}) => {
   return (
     <>
       <SubHeader />
-      <ArticleList />
+      <div className={styles.container}>
+        <ArticleList />
+      </div>
     </>
   )
 };

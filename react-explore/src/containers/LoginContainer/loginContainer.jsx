@@ -2,12 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './loginContainer.css';
 
-const LoginContainer = ({setHeaderVisible}) => {
+const LoginContainer = () => {
 
-
-    useEffect(() => {
-        setHeaderVisible(true);
-    }, [setHeaderVisible]);
 
     return (
         <section className="login_page">

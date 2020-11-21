@@ -13,7 +13,7 @@ form {
   transform: translateY(-30px);
 }
 input {
-  font-size: 18px;
+  font-size: 1em;
   color: #595959;
   box-sizing: border-box;
   width: 100%;
@@ -36,16 +36,25 @@ input:before {
 }
 
 .sign_in {
-  width: 80%;
+  width: 70%;
   margin: 80px auto 0px;
   color: white;
   font-size: 20px;
-  padding: 20px 0;
+  padding: 15px 0;
   border: none;
-  border-radius: 32px;
-  background: linear-gradient(to right, #ee6f57 40%, #b695fc);
-  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: #ffa5a5;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  transition: 0.5s;
+  font-size: 1em;
+}
+
+.sign_in:hover {
+  background: #fc9191;
+}
+.sign_in:active {
+  box-shadow: none;
 }
 
 .sign_in:focus {
