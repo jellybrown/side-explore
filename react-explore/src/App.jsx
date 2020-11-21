@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './containers/Header/header';
@@ -10,19 +10,21 @@ import SignupContainer from './containers/SignupContainer/signupContainer';
 import { MuiThemeProvider } from "@material-ui/core";
 
 function App() {
+  const [isHeaderVisible, setHeaderVisible] = useState(true);
+
   return (
     <MuiThemeProvider>
       <BrowserRouter>
-        <Header />
+        { isHeaderVisible && <Header />}
         <Switch>
           <Route exact path="/">
-            <HomeContainer />
+            <HomeContainer setHeaderVisible={setHeaderVisible} />
           </Route>
           <Route path="/login">
             <LoginContainer />
           </Route>
           <Route path="/signup">
-            <SignupContainer />
+            <SignupContainer setHeaderVisible={setHeaderVisible} />
           </Route>
         </Switch>
       </BrowserRouter>
