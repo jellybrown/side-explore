@@ -36,44 +36,43 @@ const Header = () => {
       active: false
     }
   ]);
+
   const [menuRectInfo, setMenuRectInfo] = useState({
     left: 0,
     width: 0
   });
-  useEffect(() => {
-    const resizeListener = () => {
-      // setEventMenuId('home');
-      console.log('resize');
-    };
-    window.addEventListener('resize', resizeListener);
 
-    return () => {
-      window.removeEventListener('resize', resizeListener);
-    }
+  const moveMenuRect = () => {
+    let eventElement = document.getElementById(eventMenuId);
+    let eventRect = eventElement.getBoundingClientRect();
+    let eventElementRect = eventElement.getBoundingClientRect();
+    setMenuRectInfo({
+      left: eventRect.x - eventElementRect.width / 2,
+      width: eventRect.width + eventElementRect.width
+    });
+    setItems(
+      items.map(
+        item => item.domId === eventMenuId
+          ? {...item, active: true}
+          : {...item, active: false}));
+    eventElement.style.color = 'black';
+  };
+
+  /* resize event, nav resize observer */
+  useEffect(() => {
+    const resizeListener = () => moveMenuRect(eventMenuId);
+    window.addEventListener('resize', resizeListener);
+    const resizeObserver = new ResizeObserver((entries) => moveMenuRect());
+    resizeObserver.observe(document.getElementById("nav"));
+    return () => window.removeEventListener('resize', resizeListener);
   }, []);
 
   /* eventMenuId useEffect : 메뉴 이벤트 트리거 */
   useEffect(() => {
-    if (eventMenuId) {
-      let eventElement = document.getElementById(eventMenuId);
-      let eventRect = eventElement.getBoundingClientRect();
-      let eventElementRect = eventElement.getBoundingClientRect();
-      setMenuRectInfo({
-        left: eventRect.x - eventElementRect.width / 2,
-        width: eventRect.width + eventElementRect.width
-      });
-      setItems(
-        items.map(
-          item => item.domId === eventMenuId
-            ? {...item, active: true}
-            : {...item, active: false}));
-      eventElement.style.color = 'black';
-    }
+    moveMenuRect();
     return () => {
-      if (eventMenuId) {
-        let eventElement = document.getElementById(eventMenuId);
-        eventElement.style.color = 'white';
-      }
+      let eventElement = document.getElementById(eventMenuId);
+      eventElement.style.color = 'white';
     }
   }, [eventMenuId]);
 
@@ -92,7 +91,7 @@ const Header = () => {
             style={{left: menuRectInfo.left, width: menuRectInfo.width}}>
           </div>
           <img className="logo" src="logo-white.png" alt="logo_photo"/>
-          <nav className="nav">
+          <nav id="nav" className="nav">
             <ul className="menu_list">
               {
                 items.map(item => (
