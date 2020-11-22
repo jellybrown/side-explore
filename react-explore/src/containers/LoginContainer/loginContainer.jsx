@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './loginContainer.css';
 
 const LoginContainer = () => {
-
-
     return (
         <section className="login_page">
         <form>

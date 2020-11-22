@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './header.css';
-import _ from 'lodash';
+import HeaderContext from "../../contexts/header";
 
 const Header = () => {
   const menuRectRef = useRef();
@@ -57,7 +57,6 @@ const Header = () => {
     if (eventMenuId) {
       let eventElement = document.getElementById(eventMenuId);
       let eventRect = eventElement.getBoundingClientRect();
-      console.log(eventElement.getClientRects());
       let eventElementRect = eventElement.getBoundingClientRect();
       setMenuRectInfo({
         left: eventRect.x - eventElementRect.width / 2,
@@ -83,27 +82,32 @@ const Header = () => {
   }
 
   return (
-    <header>
-      <div
-        className="menu_rectangle"
-        ref={menuRectRef}
-        style={{left: menuRectInfo.left, width: menuRectInfo.width}}>
-      </div>
-      <img className="logo" src="logo-white.png" alt="logo_photo" />
-      <nav className="nav">
-        <ul className="menu_list">
-          {
-            items.map(item => (
-              <li key={item.domId}>
-                <Link to={item.link} onClick={onClickHeader}>
-                  <span id={item.domId} className={item.active ? 'active' : null}>{item.text}</span>
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </header>
+    <HeaderContext.Consumer>
+      {({ headerVisible, setHeaderVisible }) => (
+        headerVisible &&
+        <header>
+          <div
+            className="menu_rectangle"
+            ref={menuRectRef}
+            style={{left: menuRectInfo.left, width: menuRectInfo.width}}>
+          </div>
+          <img className="logo" src="logo-white.png" alt="logo_photo"/>
+          <nav className="nav">
+            <ul className="menu_list">
+              {
+                items.map(item => (
+                  <li key={item.domId}>
+                    <Link to={item.link} onClick={onClickHeader}>
+                      <span id={item.domId} className={item.active ? 'active' : null}>{item.text}</span>
+                    </Link>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </header>
+      )}
+    </HeaderContext.Consumer>
   )
 };
 

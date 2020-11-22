@@ -1,9 +1,13 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useRef, useState, useEffect, useContext} from 'react';
 import styles from './signupContainer.module.css';
+import HeaderContext from "../../contexts/header";
 
 
 const SignupContainer = () => {
+  const {setHeaderVisible} = useContext(HeaderContext);
+  useEffect(() => {
+    setHeaderVisible(true);
+  }, [setHeaderVisible]);
 
   const [text, setText] = useState({
     email: '',

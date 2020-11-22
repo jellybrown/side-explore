@@ -6,15 +6,6 @@ import Typography from '@material-ui/core/Typography'
 import {Link} from "react-router-dom";
 import './article.css'
 
-const styles = {
-  card: {
-    background: "#f1f1f1",
-    '&:hover': {
-      background: "#f00",
-    }
-  }
-};
-
 const Article = (props) => {
 
   return(
